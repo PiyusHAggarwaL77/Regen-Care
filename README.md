@@ -13,12 +13,16 @@ The app accepts offer text and/or a URL in a React + Vite + Tailwind frontend, s
 
 Use two PowerShell terminals from the repository root. On systems where PowerShell blocks `npm.ps1`, use `npm.cmd` as below.
 
+**Terminal 1 — Backend**
+
 ```powershell
 cd backend
 Copy-Item .env.example .env
 npm.cmd install
 npm.cmd run dev
 ```
+
+**Terminal 2 — Frontend**
 
 ```powershell
 cd frontend
@@ -36,7 +40,9 @@ cd backend
 npm.cmd test
 ```
 
-The tests run against an in-process Express server and do not use the internet or credentials. To test the API manually after starting the backend:
+The tests run against an in-process Express server and do not use the internet or credentials.
+
+To test the API manually after starting the backend:
 
 ```powershell
 Invoke-RestMethod -Method Post -Uri http://localhost:3000/api/investigate -ContentType 'application/json' -Body '{"offerText":"Please send the internship details.","url":""}'
